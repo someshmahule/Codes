@@ -69,3 +69,68 @@ void LinkList::print_list()
     }
 }
 
+string LinkList::search(int x)
+{
+    if(head_)
+    {
+        Node *start = head_;
+        while(start != nullptr)
+        {
+            if(start->data_ == x)
+            {
+                return "Found";
+            }
+            start = start->next_;
+        }
+    }
+    return "Not Found";
+}
+
+Node* LinkList::reverse()
+{
+    if(head_)
+    {
+        Node *curr = head_;
+        Node *prev = nullptr;
+        Node *next;
+
+        while(curr)
+        {
+            next = curr->next_;
+            curr->next_ = prev;
+            prev = curr; 
+            curr = next;
+        }
+        return prev;
+    }
+    return nullptr;
+}
+
+/*Node* LinkList::reverse_recursion(Node* head)
+{
+    if(head->next_ == nullptr)
+    {
+        return head;
+    }
+    Node* rest = reverse_recursion(head->next_);
+    head->next_->next_ = head;
+    head->next_ = nullptr;
+    return rest;
+
+
+}*/
+
+Node* LinkList::print_middle()
+{
+    Node* fast = head_;
+    Node* slow = head_;
+
+    while(fast != nullptr && fast->next_ != nullptr)
+    {
+        fast = fast->next_->next_;
+        slow = slow->next_;
+    }
+
+    return slow;
+}
+
