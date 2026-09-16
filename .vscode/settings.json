@@ -1,0 +1,7 @@
+{
+    "cmake.sourceDirectory": "/wsl.localhost/Ubuntu/root/Projects/Codes/LinkedList",
+    "files.associations": {
+        "new": "cpp",
+        "iostream": "cpp"
+    }
+}
